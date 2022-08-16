@@ -2,6 +2,7 @@ import random
 from game_data import data
 from art import vs
 from art import logo
+from replit import clear
 print(logo)
 
 
@@ -68,12 +69,12 @@ while(True):
     print(f"Score: {user_points}")
     break
   user_points+=1
+  clear()
   print(f"Score: {user_points}")
   temp = return_less_followers(rand_num1,rand_num2)
   rand_num1=return_more_followers(rand_num1,rand_num2)
+  
   while(True):
     rand_num2 = generate_random()
     if rand_num2!=rand_num1 and rand_num2!=temp:
       break
-  
-  

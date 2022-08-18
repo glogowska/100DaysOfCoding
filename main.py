@@ -100,20 +100,23 @@ def coffee_machine():
         response = input("What would you like? (espresso/latte/cappuccino):")
         if response == "off":
             print("Machine is off.")
-            break
+            return
         elif response == "espresso" or response == "latte" or response == "cappuccino":
             if check_resources(response):
                 coins = processing_coins()
                 if enough_money(coins, response):
                     use_resources(response)
                     giving_coffee(response)
-                    coffee_machine()
+                    break  #It will get out of the while loop and get to the end of the function which will start another while loop
+                    # This way it will prevent having to type 'off' a bunch of times to end the program (cause user would have to break out of
+                    # multiple coffee_machine() functions instead of just one.
                 else:
-                    coffee_machine()
+                    break
             else:
-                coffee_machine()
+                break
         elif response == "report":
             report_print()
+    coffee_machine()
         # Assuming that the user cannot pick anything other than these three types of coffee, report option
         # and 'off' option
 

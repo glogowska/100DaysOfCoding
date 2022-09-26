@@ -58,3 +58,10 @@ class Snake:
     def down(self):
         if self.head.heading() != UP:
             self.head.setheading(DOWN)
+
+    def reset(self):
+        for blo in self.blocks:
+            blo.goto(10000, 10000)
+        self.blocks.clear()
+        self.create_snake()
+        self.head = self.blocks[0]
